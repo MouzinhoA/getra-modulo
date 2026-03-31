@@ -6,8 +6,11 @@
 	<persistence-unit name="daw" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<!-- TODO: Adicionar as entidades que vocês criaram -->
-		<!-- <class>br.edu.ifpb.es.daw.entities.Book</class> -->
+		<class>br.edu.ifpb.es.daw.entities.ContaPagar</class>
+		<class>br.edu.ifpb.es.daw.entities.Parceiro</class>
+		<class>br.edu.ifpb.es.daw.entities.Perfil</class>
+		<class>br.edu.ifpb.es.daw.entities.Usuario</class>
+		<class>br.edu.ifpb.es.daw.entities.NotaFiscal</class>
 
 		<properties>
 

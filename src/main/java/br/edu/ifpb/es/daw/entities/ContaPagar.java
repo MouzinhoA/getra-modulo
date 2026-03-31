@@ -1,0 +1,128 @@
+package br.edu.ifpb.es.daw.entities;
+
+import jakarta.persistence.*;
+import java.util.Objects;
+
+@Entity
+@Table(name = "contapagar")
+public class ContaPagar {
+
+    @Id
+    private Long id;
+
+    private Long idUsuario;   // FK no modelo, atributo simples aqui
+
+    private String descricao;
+
+    private Double valor;
+
+    private String forma_pagamento;
+
+    private String status;
+
+    private Long idParceiro;  // FK no modelo, sem relacionamento
+
+    private String data_vencimento;
+
+    private String data_pagamento;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    public String getForma_pagamento() {
+        return forma_pagamento;
+    }
+
+    public void setForma_pagamento(String forma_pagamento) {
+        this.forma_pagamento = forma_pagamento;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long getIdParceiro() {
+        return idParceiro;
+    }
+
+    public void setIdParceiro(Long idParceiro) {
+        this.idParceiro = idParceiro;
+    }
+
+    public String getData_vencimento() {
+        return data_vencimento;
+    }
+
+    public void setData_vencimento(String data_vencimento) {
+        this.data_vencimento = data_vencimento;
+    }
+
+    public String getData_pagamento() {
+        return data_pagamento;
+    }
+
+    public void setData_pagamento(String data_pagamento) {
+        this.data_pagamento = data_pagamento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ContaPagar)) return false;
+        ContaPagar that = (ContaPagar) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "ContaPagar{" +
+                "id=" + id +
+                ", idUsuario=" + idUsuario +
+                ", descricao='" + descricao + '\'' +
+                ", valor=" + valor +
+                ", forma_pagamento='" + forma_pagamento + '\'' +
+                ", status='" + status + '\'' +
+                ", idParceiro=" + idParceiro +
+                ", data_vencimento='" + data_vencimento + '\'' +
+                ", data_pagamento='" + data_pagamento + '\'' +
+                '}';
+    }
+}
