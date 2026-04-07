@@ -1,31 +1,27 @@
 package br.edu.ifpb.es.daw;
 
+import br.edu.ifpb.es.daw.dao.PerfilDAO;
+import br.edu.ifpb.es.daw.dao.impl.PerfilDAOImpl;
 import br.edu.ifpb.es.daw.entities.Perfil;
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class MainPerfilSave {
 
     public static void main(String[] args) {
+        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
+            PerfilDAO dao = new PerfilDAOImpl(emf);
 
-        EntityManagerFactory emf =
-                Persistence.createEntityManagerFactory("daw");
+            Perfil perfil = new Perfil();
+            perfil.setNome("ADMIN");
+            perfil.setPermissoes("CRUD_TOTAL");
 
-        EntityManager em = emf.createEntityManager();
-
-        Perfil perfil = new Perfil();
-        perfil.setId(1L);
-        perfil.setNome("ADMIN");
-        perfil.setPermissoes("CRUD_TOTAL");
-
-        em.getTransaction().begin();
-        em.persist(perfil);
-        em.getTransaction().commit();
-
-        em.close();
-        emf.close();
-
-        System.out.println("Perfil salvo");
+            dao.save(perfil);
+            System.out.println("Perfil salvo com sucesso: " + perfil.getNome());
+            
+        } catch (Exception e) {
+            System.err.println("Erro ao salvar perfil: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

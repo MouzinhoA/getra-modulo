@@ -1,25 +1,30 @@
 package br.edu.ifpb.es.daw;
 
-import jakarta.persistence.EntityManager;
+import java.util.List;
+
+import br.edu.ifpb.es.daw.dao.UsuarioDAO;
+import br.edu.ifpb.es.daw.dao.impl.UsuarioDAOImpl;
+import br.edu.ifpb.es.daw.entities.Usuario;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class MainUsuarioDeleteAll {
 
     public static void main(String[] args) {
+        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
+            UsuarioDAO dao = new UsuarioDAOImpl(emf);
 
-        EntityManagerFactory emf =
-                Persistence.createEntityManagerFactory("daw");
+            List<Usuario> usuarios = dao.getAll();
 
-        EntityManager em = emf.createEntityManager();
+            for (Usuario u : usuarios) {
+                dao.delete(u.getId());
+            }
 
-        em.getTransaction().begin();
-        em.createQuery("DELETE FROM Usuario").executeUpdate();
-        em.getTransaction().commit();
+            System.out.println("Todos os usuários foram removidos. Total: " + usuarios.size());
 
-        em.close();
-        emf.close();
-
-        System.out.println("Todos os usuários foram removidos");
+        } catch (Exception e) {
+            System.err.println("Erro ao remover usuários!");
+            e.printStackTrace();
+        }
     }
 }

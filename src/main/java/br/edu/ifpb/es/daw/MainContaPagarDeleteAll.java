@@ -1,25 +1,28 @@
 package br.edu.ifpb.es.daw;
 
-import jakarta.persistence.EntityManager;
+import br.edu.ifpb.es.daw.dao.ContaPagarDAO;
+import br.edu.ifpb.es.daw.dao.impl.ContaPagarDAOImpl;
+import br.edu.ifpb.es.daw.entities.ContaPagar;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import java.util.List;
 
 public class MainContaPagarDeleteAll {
 
     public static void main(String[] args) {
+        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
+            ContaPagarDAO dao = new ContaPagarDAOImpl(emf);
 
-        EntityManagerFactory emf =
-                Persistence.createEntityManagerFactory("daw");
+            List<ContaPagar> contas = dao.getAll();
 
-        EntityManager em = emf.createEntityManager();
+            for (ContaPagar c : contas) {
+                dao.delete(c.getId());
+            }
 
-        em.getTransaction().begin();
-        em.createQuery("DELETE FROM ContaPagar").executeUpdate();
-        em.getTransaction().commit();
+            System.out.println("Total de contas removidas: " + contas.size());
 
-        em.close();
-        emf.close();
-
-        System.out.println("Todas as contas à pagar foram removidas!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
