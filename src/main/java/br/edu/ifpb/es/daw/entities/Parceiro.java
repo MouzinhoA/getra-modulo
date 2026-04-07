@@ -1,7 +1,10 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.*;
 import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "parceiro")
@@ -60,8 +63,10 @@ public class Parceiro {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Parceiro)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Parceiro))
+            return false;
         Parceiro parceiro = (Parceiro) o;
         return Objects.equals(id, parceiro.id);
     }

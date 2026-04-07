@@ -1,6 +1,10 @@
 package br.edu.ifpb.es.daw.entities;
-import jakarta.persistence.*;
+
 import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "perfil")
@@ -39,8 +43,10 @@ public class Perfil {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Perfil)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Perfil))
+            return false;
         Perfil perfil = (Perfil) o;
         return Objects.equals(id, perfil.id);
     }

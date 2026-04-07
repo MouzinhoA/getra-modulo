@@ -1,7 +1,10 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.*;
 import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
@@ -10,7 +13,6 @@ public class Usuario {
     @Id
     private Long id;
 
-    // idPerfil é FK no modelo, mas aqui vira apenas um atributo simples
     private Long idPerfil;
 
     private String nome;
@@ -71,8 +73,10 @@ public class Usuario {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Usuario)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Usuario))
+            return false;
         Usuario usuario = (Usuario) o;
         return Objects.equals(id, usuario.id);
     }

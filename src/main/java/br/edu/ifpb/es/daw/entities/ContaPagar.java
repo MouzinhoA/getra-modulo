@@ -1,7 +1,10 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.*;
 import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "contapagar")
@@ -10,7 +13,7 @@ public class ContaPagar {
     @Id
     private Long id;
 
-    private Long idUsuario;   // FK no modelo, atributo simples aqui
+    private Long idUsuario;
 
     private String descricao;
 
@@ -20,7 +23,7 @@ public class ContaPagar {
 
     private String status;
 
-    private Long idParceiro;  // FK no modelo, sem relacionamento
+    private Long idParceiro;
 
     private String data_vencimento;
 
@@ -100,8 +103,10 @@ public class ContaPagar {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ContaPagar)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof ContaPagar))
+            return false;
         ContaPagar that = (ContaPagar) o;
         return Objects.equals(id, that.id);
     }
