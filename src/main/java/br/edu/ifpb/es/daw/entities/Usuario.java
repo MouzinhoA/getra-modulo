@@ -1,0 +1,95 @@
+package br.edu.ifpb.es.daw.entities;
+
+import jakarta.persistence.*;
+import java.util.Objects;
+
+@Entity
+@Table(name = "usuario")
+public class Usuario {
+
+    @Id
+    private Long id;
+
+    // idPerfil é FK no modelo, mas aqui vira apenas um atributo simples
+    private Long idPerfil;
+
+    private String nome;
+
+    private String email;
+
+    private String senha_hash;
+
+    private Boolean ativo;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(Long idPerfil) {
+        this.idPerfil = idPerfil;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha_hash() {
+        return senha_hash;
+    }
+
+    public void setSenha_hash(String senha_hash) {
+        this.senha_hash = senha_hash;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario)) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(id, usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", idPerfil=" + idPerfil +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", ativo=" + ativo +
+                '}';
+    }
+}
