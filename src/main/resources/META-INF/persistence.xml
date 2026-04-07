@@ -9,6 +9,11 @@
 		<!-- TODO: Adicionar as entidades que vocês criaram -->
 		<!-- <class>br.edu.ifpb.es.daw.entities.Book</class> -->
 
+		<class>br.edu.ifpb.es.daw.entities.Cliente</class>
+		<class>br.edu.ifpb.es.daw.entities.Fatura</class>
+		<class>br.edu.ifpb.es.daw.entities.Recorrencia</class>
+		<class>br.edu.ifpb.es.daw.entities.Servico</class>
+
 		<properties>
 
 			<!-- Database PostgreSQL-->
