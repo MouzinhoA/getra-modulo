@@ -24,11 +24,12 @@ public class MainRecorrenciaSave {
             ServicoDAO servicoDao = new ServicoDAOImpl(emf);
 
             Cliente cliente = new Cliente();
+            cliente.setCpfCnpj("" + System.nanoTime());
             cliente.setNomeRazaoSocial("Getra");
             clienteDao.save(cliente);
 
             Servico servico = new Servico();
-            servico.setNome("Departamentalização");
+            servico.setNome("Departamentalização" + System.nanoTime());            
             servicoDao.save(servico);
 
             Recorrencia recorrencia = new Recorrencia();

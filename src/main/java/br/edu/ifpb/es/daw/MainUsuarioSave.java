@@ -29,6 +29,7 @@ public class MainUsuarioSave {
             fatura.setUsuario(usuario);
             faturaDao.save(fatura);
 
+            //TODO CAMULIS: continuar perfil e conta a pagar aqui
             System.out.println(fatura);
             System.out.println(usuario);
 

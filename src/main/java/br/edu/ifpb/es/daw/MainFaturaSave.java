@@ -29,6 +29,7 @@ public class MainFaturaSave {
             NotaFiscalDAO notaFiscalDao = new NotaFiscalDAOImpl(emf);
 
             Cliente cliente = new Cliente();
+            cliente.setCpfCnpj("" + System.nanoTime());
             cliente.setNomeRazaoSocial("Getra");
             clienteDao.save(cliente);
 
@@ -37,6 +38,7 @@ public class MainFaturaSave {
             recorrenciaDao.save(recorrencia);
 
             Usuario usuario = new Usuario();
+            usuario.setId(1L);
             usuario.setNome("Getra");
             usuarioDao.save(usuario);
 
