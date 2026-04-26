@@ -9,12 +9,15 @@
 		<!-- TODO: Adicionar as entidades que vocês criaram -->
 		<!-- <class>br.edu.ifpb.es.daw.entities.Book</class> -->
 
-
-
-
-
-
-
+			<class>br.edu.ifpb.es.daw.entities.ContaPagar</class>
+			<class>br.edu.ifpb.es.daw.entities.Parceiro</class>
+			<class>br.edu.ifpb.es.daw.entities.Perfil</class>
+			<class>br.edu.ifpb.es.daw.entities.Usuario</class>
+			<class>br.edu.ifpb.es.daw.entities.NotaFiscal</class>
+			<class>br.edu.ifpb.es.daw.entities.Cliente</class>
+			<class>br.edu.ifpb.es.daw.entities.Fatura</class>
+			<class>br.edu.ifpb.es.daw.entities.Recorrencia</class>
+			<class>br.edu.ifpb.es.daw.entities.Servico</class>
 
 		<properties>
 
@@ -22,9 +25,9 @@
 			<!--
 			 -->
 			<property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/daw" />
-			<property name="jakarta.persistence.jdbc.user" value="daw" />
-			<property name="jakarta.persistence.jdbc.password" value="daw" />
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ep-icy-feather-aha94w87-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&amp;channel_binding=require" />
+			<property name="jakarta.persistence.jdbc.user" value="neondb_owner" />
+			<property name="jakarta.persistence.jdbc.password" value="npg_6InBElL9gGmW" />
 			<!-- /Database PostgreSQL-->
 
 			<!-- HIBERNATE -->
