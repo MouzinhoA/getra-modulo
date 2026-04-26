@@ -1,16 +1,20 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.UsuarioDAO;
-import br.edu.ifpb.es.daw.dao.impl.UsuarioDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.FaturaDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.UsuarioDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.FaturaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.UsuarioDAOImpl;
+import br.edu.ifpb.es.daw.entities.Fatura;
 import br.edu.ifpb.es.daw.entities.Usuario;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class MainUsuarioSave {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
-            UsuarioDAO dao = new UsuarioDAOImpl(emf);
+            UsuarioDAO usuarioDao = new UsuarioDAOImpl(emf);
+            FaturaDAO faturaDao = new FaturaDAOImpl(emf);
 
             Usuario usuario = new Usuario();
             usuario.setIdPerfil(1L);
@@ -18,13 +22,16 @@ public class MainUsuarioSave {
             usuario.setEmail("mouzinhoA@email.com");
             usuario.setSenha_hash("abc123hash");
             usuario.setAtivo(true);
+            usuarioDao.save(usuario);
 
-            dao.save(usuario);
-            System.out.println("Usuário salvo com sucesso: " + usuario.getNome());
+            Fatura fatura = new Fatura();
+            fatura.setValorTotal(1000.0);
+            fatura.setUsuario(usuario);
+            faturaDao.save(fatura);
 
-        } catch (Exception e) {
-            System.err.println("Erro ao salvar usuário!");
-            e.printStackTrace();
+            System.out.println(fatura);
+            System.out.println(usuario);
+
         }
     }
 }

@@ -1,13 +1,17 @@
 package br.edu.ifpb.es.daw.entities;
 
+import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "USUARIO")
 public class Usuario {
 
     @Id
@@ -22,6 +26,17 @@ public class Usuario {
     private String senha_hash;
 
     private Boolean ativo;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "usuario")
+    private List<Fatura> faturas;
+
+    public List<Fatura> getFaturas() {
+        return faturas;
+    }
+
+    public void setFaturas(List<Fatura> faturas) {
+        this.faturas = faturas;
+    }
 
     public Long getId() {
         return id;
@@ -88,12 +103,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", idPerfil=" + idPerfil +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", ativo=" + ativo +
-                '}';
+        return "Usuario [id=" + id + ", idPerfil=" + idPerfil + ", nome=" + nome + ", email=" + email + ", senha_hash="
+                + senha_hash + ", ativo=" + ativo + "]";
     }
+    
 }

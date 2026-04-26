@@ -1,24 +1,58 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.FaturaDAO;
-import br.edu.ifpb.es.daw.dao.impl.FaturaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.ClienteDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.FaturaDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.NotaFiscalDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.RecorrenciaDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.UsuarioDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.ClienteDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.FaturaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.NotaFiscalDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.RecorrenciaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.UsuarioDAOImpl;
+import br.edu.ifpb.es.daw.entities.Cliente;
 import br.edu.ifpb.es.daw.entities.Fatura;
+import br.edu.ifpb.es.daw.entities.NotaFiscal;
+import br.edu.ifpb.es.daw.entities.Recorrencia;
+import br.edu.ifpb.es.daw.entities.Usuario;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import java.util.List;
 
 public class MainFaturaDeleteAll {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
-            FaturaDAO dao = new FaturaDAOImpl(emf);
-            List<Fatura> faturas = dao.getAll();
-            
-            for (Fatura f : faturas) {
-                dao.delete(f.getId());
+            FaturaDAO faturaDao = new FaturaDAOImpl(emf);
+            ClienteDAO clienteDao = new ClienteDAOImpl(emf);
+            RecorrenciaDAO recorrenciaDao = new RecorrenciaDAOImpl(emf);
+            UsuarioDAO usuarioDao = new UsuarioDAOImpl(emf);
+            NotaFiscalDAO notaFiscalDao = new NotaFiscalDAOImpl(emf);
+
+            List<NotaFiscal> notaFiscals = notaFiscalDao.getAll();
+            for (NotaFiscal notaFiscal : notaFiscals) {
+                notaFiscalDao.delete(notaFiscal.getId());
             }
-            System.out.println("Total de faturas removidas: " + faturas.size());
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            List<Fatura> faturas = faturaDao.getAll();
+            for (Fatura fatura : faturas) {
+                faturaDao.delete(fatura.getId());
+            }
+
+            List<Recorrencia> recorrencias = recorrenciaDao.getAll();
+            for (Recorrencia recorrencia : recorrencias) {
+                recorrenciaDao.delete(recorrencia.getId());
+            }
+
+            List<Usuario> usuarios = usuarioDao.getAll();
+            for (Usuario usuario : usuarios) {
+                usuarioDao.delete(usuario.getId());
+            }
+
+            List<Cliente> clientes = clienteDao.getAll();
+            for (Cliente cliente : clientes) {
+                clienteDao.delete(cliente.getId());
+            }
+
         }
     }
 }

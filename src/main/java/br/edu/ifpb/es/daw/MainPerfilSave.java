@@ -1,7 +1,7 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.PerfilDAO;
-import br.edu.ifpb.es.daw.dao.impl.PerfilDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.PerfilDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.PerfilDAOImpl;
 import br.edu.ifpb.es.daw.entities.Perfil;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

@@ -1,11 +1,17 @@
 package br.edu.ifpb.es.daw.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,8 +26,25 @@ public class Recorrencia implements Serializable {
     private Integer diaVencimento;
 
     private Boolean status;
-    private Long idCliente;
-    private Long idServico;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idCliente")
+    private Cliente cliente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idServico")
+    private Servico servico;
+    
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, orphanRemoval = true, mappedBy = "recorrencia")
+    private List<Fatura> faturas;
+
+    public List<Fatura> getFaturas() {
+        return faturas;
+    }
+
+    public void setFaturas(List<Fatura> faturas) {
+        this.faturas = faturas;
+    }
 
     @Override
     public int hashCode() {
@@ -31,20 +54,20 @@ public class Recorrencia implements Serializable {
         return result;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Long getIdServico() {
-        return idServico;
+    public Servico getServico() {
+        return servico;
     }
 
-    public void setIdServico(Long idServico) {
-        this.idServico = idServico;
+    public void setServico(Servico servico) {
+        this.servico = servico;
     }
 
     public Long getId() {
@@ -107,7 +130,7 @@ public class Recorrencia implements Serializable {
     @Override
     public String toString() {
         return "Recorrencia [id=" + id + ", valorCobrado=" + valorCobrado + ", periodicidade=" + periodicidade
-                + ", diaVencimento=" + diaVencimento + ", status=" + status + ", idCliente=" + idCliente
-                + ", idServico=" + idServico + "]";
+                + ", diaVencimento=" + diaVencimento + ", status=" + status + "]";
     }
+
 }

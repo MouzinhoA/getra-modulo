@@ -1,12 +1,16 @@
 package br.edu.ifpb.es.daw.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,13 +25,17 @@ public class Servico implements Serializable {
     private String descricao;
     private Double valorPadrao;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "servico")
+    private List<Recorrencia> recorrencias;
+
     public Long getId() {
         return id;
     }
 
     @Override
     public String toString() {
-        return "Servico [id=" + id + ", nome=" + nome + "]";
+        return "Servico [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", valorPadrao=" + valorPadrao
+                + "]";
     }
 
     @Override
@@ -63,6 +71,14 @@ public class Servico implements Serializable {
         return nome;
     }
 
+    public List<Recorrencia> getRecorrencias() {
+        return recorrencias;
+    }
+
+    public void setRecorrencias(List<Recorrencia> recorrencias) {
+        this.recorrencias = recorrencias;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -82,5 +98,4 @@ public class Servico implements Serializable {
     public void setValorPadrao(Double valorPadrao) {
         this.valorPadrao = valorPadrao;
     }
-
 }

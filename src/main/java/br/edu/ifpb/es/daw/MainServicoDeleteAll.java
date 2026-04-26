@@ -1,21 +1,49 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.ServicoDAO;
-import br.edu.ifpb.es.daw.dao.impl.ServicoDAOImpl;
+import java.util.List;
+
+import br.edu.ifpb.es.daw.dao.bidirecional.FaturaDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.NotaFiscalDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.RecorrenciaDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.ServicoDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.FaturaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.NotaFiscalDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.RecorrenciaDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.ServicoDAOImpl;
+import br.edu.ifpb.es.daw.entities.Fatura;
+import br.edu.ifpb.es.daw.entities.NotaFiscal;
+import br.edu.ifpb.es.daw.entities.Recorrencia;
 import br.edu.ifpb.es.daw.entities.Servico;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class MainServicoDeleteAll {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
-            ServicoDAO dao = new ServicoDAOImpl(emf);
-            for (Servico s : dao.getAll()) {
-                dao.delete(s.getId());
+            ServicoDAO servicoDao = new ServicoDAOImpl(emf);
+            RecorrenciaDAO recorrenciaDao = new RecorrenciaDAOImpl(emf);
+            FaturaDAO faturaDao = new FaturaDAOImpl(emf);
+            NotaFiscalDAO notaFiscalDao = new NotaFiscalDAOImpl(emf);
+
+            List<NotaFiscal> notaFiscals = notaFiscalDao.getAll();
+            for (NotaFiscal notaFiscal : notaFiscals) {
+                notaFiscalDao.delete(notaFiscal.getId());
             }
-            System.out.println("Todos os serviços foram removidos.");
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            List<Fatura> faturas = faturaDao.getAll();
+            for (Fatura fatura : faturas) {
+                faturaDao.delete(fatura.getId());
+            }
+
+            List<Recorrencia> recorrencias = recorrenciaDao.getAll();
+            for (Recorrencia recorrencia : recorrencias) {
+                recorrenciaDao.delete(recorrencia.getId());
+            }
+
+            List<Servico> servicos = servicoDao.getAll();
+            for (Servico servico : servicos) {
+                servicoDao.delete(servico.getId());
+            }
         }
     }
 }

@@ -2,12 +2,18 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,9 +35,28 @@ public class Fatura implements Serializable {
     @Column(unique = true)
     private String idExternoGateway;
 
-    private Long idCliente;
-    private Long idRecorrencia;
-    private Long idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idCliente")
+    private Cliente cliente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idRecorrencia")
+    private Recorrencia recorrencia;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "fatura")
+    private List<NotaFiscal> notaFiscals;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Long getId() {
         return id;
@@ -45,13 +70,30 @@ public class Fatura implements Serializable {
         return result;
     }
 
+
+
     @Override
     public String toString() {
         return "Fatura [id=" + id + ", valorTotal=" + valorTotal + ", dataVencimento=" + dataVencimento
                 + ", dataPagamento=" + dataPagamento + ", status=" + status + ", tipoPagamentoPreferencial="
                 + tipoPagamentoPreferencial + ", linhaDigitavelBoleto=" + linhaDigitavelBoleto + ", qrCodePix="
-                + qrCodePix + ", idExternoGateway=" + idExternoGateway + ", idCliente=" + idCliente + ", idRecorrencia="
-                + idRecorrencia + ", idUsuario=" + idUsuario + "]";
+                + qrCodePix + ", idExternoGateway=" + idExternoGateway + "]";
+    }
+
+    public Recorrencia getRecorrencia() {
+        return recorrencia;
+    }
+
+    public void setRecorrencia(Recorrencia recorrencia) {
+        this.recorrencia = recorrencia;
+    }
+
+    public List<NotaFiscal> getNotaFiscals() {
+        return notaFiscals;
+    }
+
+    public void setNotaFiscals(List<NotaFiscal> notaFiscals) {
+        this.notaFiscals = notaFiscals;
     }
 
     @Override
@@ -139,28 +181,12 @@ public class Fatura implements Serializable {
         this.idExternoGateway = idExternoGateway;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Long getIdRecorrencia() {
-        return idRecorrencia;
-    }
-
-    public void setIdRecorrencia(Long idRecorrencia) {
-        this.idRecorrencia = idRecorrencia;
-    }
-
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }

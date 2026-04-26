@@ -1,7 +1,7 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.ContaPagarDAO;
-import br.edu.ifpb.es.daw.dao.impl.ContaPagarDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.ContaPagarDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.ContaPagarDAOImpl;
 import br.edu.ifpb.es.daw.entities.ContaPagar;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

@@ -1,7 +1,7 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.ParceiroDAO;
-import br.edu.ifpb.es.daw.dao.impl.ParceiroDAOImpl;
+import br.edu.ifpb.es.daw.dao.bidirecional.ParceiroDAO;
+import br.edu.ifpb.es.daw.dao.bidirecional.impl.ParceiroDAOImpl;
 import br.edu.ifpb.es.daw.entities.Parceiro;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
