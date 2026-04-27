@@ -27,6 +27,14 @@ public class Parceiro {
         return id;
     }
 
+    public List<ContaPagar> getConta_pagar() {
+        return conta_pagar;
+    }
+
+    public void setConta_pagar(List<ContaPagar> conta_pagar) {
+        this.conta_pagar = conta_pagar;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

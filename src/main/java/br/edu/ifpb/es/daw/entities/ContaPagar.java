@@ -35,6 +35,22 @@ public class ContaPagar {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
+    public Parceiro getParceiro() {
+        return parceiro;
+    }
+
+    public void setParceiro(Parceiro parceiro) {
+        this.parceiro = parceiro;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public Long getId() {
         return id;
     }

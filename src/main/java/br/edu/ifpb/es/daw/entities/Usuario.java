@@ -32,6 +32,22 @@ public class Usuario {
     @JoinColumn(name = "idPerfil")
     private Perfil perfil;
 
+    public List<ContaPagar> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<ContaPagar> contas) {
+        this.contas = contas;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
     public List<Fatura> getFaturas() {
         return faturas;
     }
