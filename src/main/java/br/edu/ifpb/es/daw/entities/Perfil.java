@@ -1,10 +1,9 @@
 package br.edu.ifpb.es.daw.entities;
 
+import java.util.List;
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "perfil")
@@ -16,6 +15,9 @@ public class Perfil {
     private String nome;
 
     private String permissoes;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "perfil")
+    private List<Usuario> usuarios;
 
     public Long getId() {
         return id;

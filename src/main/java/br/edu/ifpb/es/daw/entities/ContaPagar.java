@@ -2,9 +2,7 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "contapagar")
@@ -28,6 +26,14 @@ public class ContaPagar {
     private String data_vencimento;
 
     private String data_pagamento;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idParceiro")
+    private Parceiro parceiro;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Long getId() {
         return id;

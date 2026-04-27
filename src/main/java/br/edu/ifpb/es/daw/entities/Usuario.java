@@ -3,12 +3,7 @@ package br.edu.ifpb.es.daw.entities;
 import java.util.List;
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "USUARIO")
@@ -29,6 +24,13 @@ public class Usuario {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "usuario")
     private List<Fatura> faturas;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "usuario")
+    private List<ContaPagar> contas;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPerfil")
+    private Perfil perfil;
 
     public List<Fatura> getFaturas() {
         return faturas;

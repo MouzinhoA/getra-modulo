@@ -1,10 +1,9 @@
 package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "parceiro")
@@ -20,6 +19,9 @@ public class Parceiro {
     private String email_contato;
 
     private String dados_bancarios_pix;
+
+    @OneToMany(mappedBy = "parceiro", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<ContaPagar> conta_pagar;
 
     public Long getId() {
         return id;
