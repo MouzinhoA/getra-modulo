@@ -17,28 +17,27 @@ import jakarta.persistence.Persistence;
 
 public class MainContaPagarSave {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
             ContaPagarDAO contaDao = new ContaPagarDAOImpl(emf);
             ParceiroDAO parceiroDao = new ParceiroDAOImpl(emf);
             UsuarioDAO usuarioDao = new UsuarioDAOImpl(emf);
             PerfilDAO perfilDao = new PerfilDAOImpl(emf);
 
-
             Perfil perfil = new Perfil();
+            perfil.setId(1L);
             perfil.setNome("USER");
             perfil.setPermissoes("ADMIN");
             perfilDao.save(perfil);
 
-
             Usuario usuario = new Usuario();
+            usuario.setId(1L);
             usuario.setNome("João");
             usuario.setEmail("joao@email.com");
             usuario.setSenha_hash("hash123");
             usuario.setAtivo(true);
             usuario.setPerfil(perfil);
             usuarioDao.save(usuario);
-
 
             Parceiro parceiro = new Parceiro();
             parceiro.setNome_razao_social("Empresa XYZ " + System.nanoTime());
@@ -47,15 +46,14 @@ public class MainContaPagarSave {
             parceiro.setDados_bancarios_pix("pix-chave");
             parceiroDao.save(parceiro);
 
-
             ContaPagar conta = new ContaPagar();
+            conta.setId(1L);
             conta.setDescricao("Conta de Luz " + System.currentTimeMillis());
             conta.setValor(150.75);
             conta.setForma_pagamento("PIX");
             conta.setStatus("PENDENTE");
             conta.setData_vencimento("2026-04-10");
             conta.setData_pagamento(null);
-
 
             conta.setUsuario(usuario);
             conta.setParceiro(parceiro);
@@ -66,9 +64,6 @@ public class MainContaPagarSave {
             System.out.println(parceiro);
             System.out.println(conta);
 
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

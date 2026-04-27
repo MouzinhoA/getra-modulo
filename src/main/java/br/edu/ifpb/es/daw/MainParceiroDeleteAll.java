@@ -13,26 +13,21 @@ import jakarta.persistence.Persistence;
 
 public class MainParceiroDeleteAll {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
 
             ParceiroDAO parceiroDao = new ParceiroDAOImpl(emf);
             ContaPagarDAO contaDao = new ContaPagarDAOImpl(emf);
 
-            List<Parceiro> parceiros = parceiroDao.getAll();
-            for (Parceiro p : parceiros) {
-                parceiroDao.delete(p.getId());
-            }
-
             List<ContaPagar> contas = contaDao.getAll();
-            for (ContaPagar c : contas) {
-                contaDao.delete(c.getId());
+            for (ContaPagar contaPagar : contas) {
+                contaDao.delete(contaPagar.getId());
             }
 
-            System.out.println("Todos os parceiros foram removidos. Total: " + parceiros.size());
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            List<Parceiro> parceiros = parceiroDao.getAll();
+            for (Parceiro parceiro : parceiros) {
+                parceiroDao.delete(parceiro.getId());
+            }
         }
     }
 }
