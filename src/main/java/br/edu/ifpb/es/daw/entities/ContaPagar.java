@@ -11,8 +11,6 @@ public class ContaPagar {
     @Id
     private Long id;
 
-    private Long idUsuario;
-
     private String descricao;
 
     private Double valor;
@@ -20,8 +18,6 @@ public class ContaPagar {
     private String forma_pagamento;
 
     private String status;
-
-    private Long idParceiro;
 
     private String data_vencimento;
 
@@ -59,14 +55,6 @@ public class ContaPagar {
         this.id = id;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -97,14 +85,6 @@ public class ContaPagar {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Long getIdParceiro() {
-        return idParceiro;
-    }
-
-    public void setIdParceiro(Long idParceiro) {
-        this.idParceiro = idParceiro;
     }
 
     public String getData_vencimento() {
@@ -140,16 +120,9 @@ public class ContaPagar {
 
     @Override
     public String toString() {
-        return "ContaPagar{" +
-                "id=" + id +
-                ", idUsuario=" + idUsuario +
-                ", descricao='" + descricao + '\'' +
-                ", valor=" + valor +
-                ", forma_pagamento='" + forma_pagamento + '\'' +
-                ", status='" + status + '\'' +
-                ", idParceiro=" + idParceiro +
-                ", data_vencimento='" + data_vencimento + '\'' +
-                ", data_pagamento='" + data_pagamento + '\'' +
-                '}';
+        return "ContaPagar [id=" + id + ", descricao=" + descricao + ", valor=" + valor + ", forma_pagamento="
+                + forma_pagamento + ", status=" + status + ", data_vencimento=" + data_vencimento + ", data_pagamento="
+                + data_pagamento + "]";
     }
+
 }

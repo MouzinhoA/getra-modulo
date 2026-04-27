@@ -17,7 +17,6 @@ public class MainUsuarioSave {
             FaturaDAO faturaDao = new FaturaDAOImpl(emf);
 
             Usuario usuario = new Usuario();
-            usuario.setIdPerfil(1L);
             usuario.setNome("Aline Mouzinho");
             usuario.setEmail("mouzinhoA@email.com");
             usuario.setSenha_hash("abc123hash");

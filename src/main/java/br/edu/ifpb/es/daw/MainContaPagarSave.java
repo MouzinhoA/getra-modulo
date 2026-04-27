@@ -13,12 +13,10 @@ public class MainContaPagarSave {
             ContaPagarDAO dao = new ContaPagarDAOImpl(emf);
 
             ContaPagar conta = new ContaPagar();
-            conta.setIdUsuario(10L);
             conta.setDescricao("Conta de Luz " + System.currentTimeMillis());
             conta.setValor(150.75);
             conta.setForma_pagamento("PIX");
             conta.setStatus("PENDENTE");
-            conta.setIdParceiro(5L);
             conta.setData_vencimento("2026-04-10");
             conta.setData_pagamento(null);
 

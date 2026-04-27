@@ -12,8 +12,6 @@ public class Usuario {
     @Id
     private Long id;
 
-    private Long idPerfil;
-
     private String nome;
 
     private String email;
@@ -62,14 +60,6 @@ public class Usuario {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getIdPerfil() {
-        return idPerfil;
-    }
-
-    public void setIdPerfil(Long idPerfil) {
-        this.idPerfil = idPerfil;
     }
 
     public String getNome() {
@@ -121,8 +111,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [id=" + id + ", idPerfil=" + idPerfil + ", nome=" + nome + ", email=" + email + ", senha_hash="
-                + senha_hash + ", ativo=" + ativo + "]";
+        return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha_hash=" + senha_hash + ", ativo="
+                + ativo + "]";
     }
+
+
     
 }
