@@ -26,13 +26,11 @@ public class MainUsuarioSave {
             ContaPagarDAO contaDao = new ContaPagarDAOImpl(emf);
 
             Perfil perfil = new Perfil();
-            perfil.setId(1L);
             perfil.setNome("ADMIN");
             perfil.setPermissoes("CRUD_TOTAL");
             perfilDao.save(perfil);
 
             Usuario usuario = new Usuario();
-            usuario.setId(1L);
             usuario.setNome("Aline Mouzinho");
             usuario.setEmail("mouzinhoA@email.com");
             usuario.setSenha_hash("abc123hash");
@@ -46,7 +44,6 @@ public class MainUsuarioSave {
             faturaDao.save(fatura);
 
             ContaPagar conta = new ContaPagar();
-            conta.setId(1L); 
             conta.setDescricao("Conta teste");
             conta.setValor(200.0);
             conta.setStatus("PENDENTE");

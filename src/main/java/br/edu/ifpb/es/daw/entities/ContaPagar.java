@@ -1,14 +1,16 @@
 package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
-
 import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "contapagar")
 public class ContaPagar {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String descricao;

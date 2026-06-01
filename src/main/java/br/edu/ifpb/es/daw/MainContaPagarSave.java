@@ -25,13 +25,11 @@ public class MainContaPagarSave {
             PerfilDAO perfilDao = new PerfilDAOImpl(emf);
 
             Perfil perfil = new Perfil();
-            perfil.setId(1L);
             perfil.setNome("USER");
             perfil.setPermissoes("ADMIN");
             perfilDao.save(perfil);
 
             Usuario usuario = new Usuario();
-            usuario.setId(1L);
             usuario.setNome("João");
             usuario.setEmail("joao@email.com");
             usuario.setSenha_hash("hash123");
@@ -47,7 +45,6 @@ public class MainContaPagarSave {
             parceiroDao.save(parceiro);
 
             ContaPagar conta = new ContaPagar();
-            conta.setId(1L);
             conta.setDescricao("Conta de Luz " + System.currentTimeMillis());
             conta.setValor(150.75);
             conta.setForma_pagamento("PIX");

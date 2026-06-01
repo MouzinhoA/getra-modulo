@@ -2,6 +2,8 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.util.List;
 import java.util.Objects;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.*;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.*;
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;

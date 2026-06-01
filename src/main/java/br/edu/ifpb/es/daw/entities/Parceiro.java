@@ -2,6 +2,8 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
 import java.util.List;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.*;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.*;
 public class Parceiro {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome_razao_social;
