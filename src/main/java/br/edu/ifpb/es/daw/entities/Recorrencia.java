@@ -22,7 +22,17 @@ public class Recorrencia implements Serializable {
     private Long id;
 
     private Double valorCobrado;
-    private String periodicidade;
+
+    public enum Periodicidade {
+        MENSAL,
+        BIMESTRAL,
+        TRIMESTRAL,
+        SEMESTRAL,
+        ANUAL
+    }
+
+    private Periodicidade periodicidade;
+
     private Integer diaVencimento;
 
     private Boolean status;
@@ -34,7 +44,7 @@ public class Recorrencia implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idServico")
     private Servico servico;
-    
+
     @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, orphanRemoval = true, mappedBy = "recorrencia")
     private List<Fatura> faturas;
 
@@ -70,6 +80,10 @@ public class Recorrencia implements Serializable {
         this.servico = servico;
     }
 
+    public Recorrencia() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -86,11 +100,11 @@ public class Recorrencia implements Serializable {
         this.valorCobrado = valorCobrado;
     }
 
-    public String getPeriodicidade() {
+    public Periodicidade getPeriodicidade() {
         return periodicidade;
     }
 
-    public void setPeriodicidade(String periodicidade) {
+    public void setPeriodicidade(Periodicidade periodicidade) {
         this.periodicidade = periodicidade;
     }
 

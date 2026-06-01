@@ -43,7 +43,7 @@ public class Fatura implements Serializable {
     @JoinColumn(name = "idRecorrencia")
     private Recorrencia recorrencia;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "fatura")
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "fatura")
     private List<NotaFiscal> notaFiscals;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -58,6 +58,9 @@ public class Fatura implements Serializable {
         this.usuario = usuario;
     }
 
+    public Fatura() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -69,8 +72,6 @@ public class Fatura implements Serializable {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
-
-
 
     @Override
     public String toString() {

@@ -29,12 +29,12 @@ public class MainRecorrenciaSave {
             clienteDao.save(cliente);
 
             Servico servico = new Servico();
-            servico.setNome("Departamentalização" + System.nanoTime());            
+            servico.setNome("Departamentalização" + System.nanoTime());
             servicoDao.save(servico);
 
             Recorrencia recorrencia = new Recorrencia();
             recorrencia.setValorCobrado(100.0);
-            recorrencia.setPeriodicidade("MENSAL");
+            recorrencia.setPeriodicidade(Recorrencia.Periodicidade.MENSAL);
             recorrencia.setDiaVencimento(5);
             recorrencia.setStatus(true);
             recorrencia.setCliente(cliente);

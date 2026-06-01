@@ -63,6 +63,10 @@ public class Servico implements Serializable {
         return true;
     }
 
+    public Servico(){
+        
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

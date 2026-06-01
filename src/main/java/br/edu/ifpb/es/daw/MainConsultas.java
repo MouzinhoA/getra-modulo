@@ -24,20 +24,17 @@ public class MainConsultas {
             FaturaDAO faturaDao = new FaturaDAOImpl(emf);
             RecorrenciaDAO recorrenciaDao = new RecorrenciaDAOImpl(emf);
 
-            // Consulta 1
             System.out.println("CONSULTA 1");
             Cliente cliente =
                     clienteDao.buscarPorCpfCnpj("12345678900");
             System.out.println(cliente);
 
-            // Consulta 2
             System.out.println("CONSULTA 2");
             List<Fatura> faturas =
                     faturaDao.buscarPorCliente(cliente);
 
             faturas.forEach(System.out::println);
 
-            // Consulta 3
             System.out.println("CONSULTA 3");
             List<Recorrencia> recorrencias =
                     recorrenciaDao.buscarPorPeriodicidadeEStatus(
@@ -46,14 +43,12 @@ public class MainConsultas {
 
             recorrencias.forEach(System.out::println);
 
-            // Consulta 4
             System.out.println("CONSULTA 4");
             Double soma =
                     faturaDao.somarValorTotalFaturas();
 
             System.out.println(soma);
 
-            // Consulta 5
             System.out.println("CONSULTA 5");
             Long idFatura = faturas.get(0).getId();
 

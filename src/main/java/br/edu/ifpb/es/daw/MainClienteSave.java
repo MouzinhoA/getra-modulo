@@ -13,7 +13,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class MainClienteSave {
-    public static void main(String[] args) throws DawException{
+    public static void main(String[] args) throws DawException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
             ClienteDAO clienteDao = new ClienteDAOImpl(emf);
             FaturaDAO faturaDao = new FaturaDAOImpl(emf);
@@ -34,7 +34,7 @@ public class MainClienteSave {
 
             Recorrencia recorrencia = new Recorrencia();
             recorrencia.setValorCobrado(5000.0);
-            recorrencia.setPeriodicidade("MENSAL");
+            recorrencia.setPeriodicidade(Recorrencia.Periodicidade.MENSAL);
             recorrencia.setDiaVencimento(5);
             recorrencia.setStatus(true);
             recorrencia.setCliente(cliente);

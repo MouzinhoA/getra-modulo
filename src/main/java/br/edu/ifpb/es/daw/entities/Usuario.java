@@ -19,7 +19,7 @@ public class Usuario {
 
     private String email;
 
-    private String senha_hash;
+    private String senhaHash;
 
     private Boolean ativo;
 
@@ -57,6 +57,10 @@ public class Usuario {
         this.faturas = faturas;
     }
 
+    public Usuario(){
+        
+    }
+
     public Long getId() {
         return id;
     }
@@ -82,11 +86,11 @@ public class Usuario {
     }
 
     public String getSenha_hash() {
-        return senha_hash;
+        return senhaHash;
     }
 
-    public void setSenha_hash(String senha_hash) {
-        this.senha_hash = senha_hash;
+    public void setSenha_hash(String senhaHash) {
+        this.senhaHash = senhaHash;
     }
 
     public Boolean getAtivo() {
@@ -114,7 +118,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha_hash=" + senha_hash + ", ativo="
+        return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senhaHash=" + senhaHash + ", ativo="
                 + ativo + "]";
     }
 

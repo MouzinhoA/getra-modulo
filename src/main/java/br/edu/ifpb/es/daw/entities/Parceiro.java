@@ -2,8 +2,6 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
 import java.util.List;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.*;
 
@@ -15,13 +13,13 @@ public class Parceiro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome_razao_social;
+    private String nomeRazaoSocial;
 
-    private String cpf_cnpj;
+    private String cpfCnpj;
 
-    private String email_contato;
+    private String emailContato;
 
-    private String dados_bancarios_pix;
+    private String dadosBancariosPix;
 
     @OneToMany(mappedBy = "parceiro", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<ContaPagar> conta_pagar;
@@ -38,40 +36,44 @@ public class Parceiro {
         this.conta_pagar = conta_pagar;
     }
 
+    public Parceiro() {
+        
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public String getNome_razao_social() {
-        return nome_razao_social;
+        return nomeRazaoSocial;
     }
 
-    public void setNome_razao_social(String nome_razao_social) {
-        this.nome_razao_social = nome_razao_social;
+    public void setNome_razao_social(String nomeRazaoSocial) {
+        this.nomeRazaoSocial = nomeRazaoSocial;
     }
 
     public String getCpf_cnpj() {
-        return cpf_cnpj;
+        return cpfCnpj;
     }
 
-    public void setCpf_cnpj(String cpf_cnpj) {
-        this.cpf_cnpj = cpf_cnpj;
+    public void setCpf_cnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 
     public String getEmail_contato() {
-        return email_contato;
+        return emailContato;
     }
 
-    public void setEmail_contato(String email_contato) {
-        this.email_contato = email_contato;
+    public void setEmail_contato(String emailContato) {
+        this.emailContato = emailContato;
     }
 
     public String getDados_bancarios_pix() {
-        return dados_bancarios_pix;
+        return dadosBancariosPix;
     }
 
-    public void setDados_bancarios_pix(String dados_bancarios_pix) {
-        this.dados_bancarios_pix = dados_bancarios_pix;
+    public void setDados_bancarios_pix(String dadosBancariosPix) {
+        this.dadosBancariosPix = dadosBancariosPix;
     }
 
     @Override
@@ -93,10 +95,10 @@ public class Parceiro {
     public String toString() {
         return "Parceiro{" +
                 "id=" + id +
-                ", nome_razao_social='" + nome_razao_social + '\'' +
-                ", cpf_cnpj='" + cpf_cnpj + '\'' +
-                ", email_contato='" + email_contato + '\'' +
-                ", dados_bancarios_pix='" + dados_bancarios_pix + '\'' +
+                ", nomeRazaoSocial='" + nomeRazaoSocial + '\'' +
+                ", cpfCnpj='" + cpfCnpj + '\'' +
+                ", emailContato='" + emailContato + '\'' +
+                ", dadosBancariosPix='" + dadosBancariosPix + '\'' +
                 '}';
     }
 }

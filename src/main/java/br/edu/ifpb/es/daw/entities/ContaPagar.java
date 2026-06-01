@@ -2,8 +2,6 @@ package br.edu.ifpb.es.daw.entities;
 
 import java.util.Objects;
 import jakarta.persistence.*;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "contapagar")
@@ -17,13 +15,13 @@ public class ContaPagar {
 
     private Double valor;
 
-    private String forma_pagamento;
+    private String formaPagamento;
 
     private String status;
 
-    private String data_vencimento;
+    private String dataVencimento;
 
-    private String data_pagamento;
+    private String dataPagamento;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idParceiro")
@@ -47,6 +45,10 @@ public class ContaPagar {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public ContaPagar() {
+        
     }
 
     public Long getId() {
@@ -74,11 +76,11 @@ public class ContaPagar {
     }
 
     public String getForma_pagamento() {
-        return forma_pagamento;
+        return formaPagamento;
     }
 
-    public void setForma_pagamento(String forma_pagamento) {
-        this.forma_pagamento = forma_pagamento;
+    public void setForma_pagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public String getStatus() {
@@ -90,19 +92,19 @@ public class ContaPagar {
     }
 
     public String getData_vencimento() {
-        return data_vencimento;
+        return dataVencimento;
     }
 
-    public void setData_vencimento(String data_vencimento) {
-        this.data_vencimento = data_vencimento;
+    public void setData_vencimento(String dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
     public String getData_pagamento() {
-        return data_pagamento;
+        return dataPagamento;
     }
 
-    public void setData_pagamento(String data_pagamento) {
-        this.data_pagamento = data_pagamento;
+    public void setData_pagamento(String dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
     @Override
@@ -122,9 +124,9 @@ public class ContaPagar {
 
     @Override
     public String toString() {
-        return "ContaPagar [id=" + id + ", descricao=" + descricao + ", valor=" + valor + ", forma_pagamento="
-                + forma_pagamento + ", status=" + status + ", data_vencimento=" + data_vencimento + ", data_pagamento="
-                + data_pagamento + "]";
+        return "ContaPagar [id=" + id + ", descricao=" + descricao + ", valor=" + valor + ", formaPagamento="
+                + formaPagamento + ", status=" + status + ", dataVencimento=" + dataVencimento + ", dataPagamento="
+                + dataPagamento + "]";
     }
 
 }
