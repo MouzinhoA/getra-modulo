@@ -80,4 +80,10 @@ public class FaturaRestController {
 		FaturaResponseDTO resultado = faturaService.pendente(lookupId);
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
+
+	@PatchMapping("/{lookupId}/vencido")
+	public ResponseEntity<FaturaResponseDTO> vencido(@PathVariable UUID lookupId) {
+		FaturaResponseDTO resultado = faturaService.vencido(lookupId);
+		return new ResponseEntity<>(resultado, HttpStatus.OK);
+	}
 }

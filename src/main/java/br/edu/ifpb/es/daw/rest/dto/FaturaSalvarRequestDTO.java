@@ -19,7 +19,7 @@ public record FaturaSalvarRequestDTO(
     @Schema(description = "Meio de pagamento utilizado.")
     String meioPagamento,
 
-    @Schema(description = "Status atual da fatura (ex: PAGO, PENDENTE).")
+    @Schema(description = "Status atual da fatura (PAGO, PENDENTE, VENCIDO).")
     String status,
 
     @Schema(description = "ID do Cliente.")

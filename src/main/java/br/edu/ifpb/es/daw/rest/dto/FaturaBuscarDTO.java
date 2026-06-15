@@ -3,7 +3,7 @@ package br.edu.ifpb.es.daw.rest.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public record FaturaBuscarDTO(
-    @Schema(description = "Filtrar pelo status atual da fatura (ex: PAGO, PENDENTE).")
+    @Schema(description = "Filtrar pelo status atual da fatura (PAGO, PENDENTE, VENCIDO).")
     String status,
 
     @Schema(description = "Filtrar faturas de um cliente específico informando o ID dele.")

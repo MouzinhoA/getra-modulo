@@ -17,13 +17,11 @@ public interface FaturaRepository extends JpaRepository<Fatura, Long> {
 
 	Optional<Fatura> findByLookupId(UUID lookupId);
 
-	@Query("SELECT f FROM Fatura f WHERE (:status IS NULL OR "
-			+ "((:status = 'PAGO' AND f.status = TRUE) OR (:status = 'PENDENTE' AND (f.status IS NULL OR f.status = FALSE))))"
+	@Query("SELECT f FROM Fatura f WHERE (:status IS NULL OR f.status = :status)"
 			+ " AND (:idCliente IS NULL OR f.cliente.id = :idCliente)")
 	Page<Fatura> buscarPor(String status, Long idCliente, Pageable pageable);
 
-	@Query("SELECT f FROM Fatura f WHERE (:#{#dto.status} IS NULL OR "
-			+ "((:#{#dto.status} = 'PAGO' AND f.status = TRUE) OR (:#{#dto.status} = 'PENDENTE' AND (f.status IS NULL OR f.status = FALSE))))"
+	@Query("SELECT f FROM Fatura f WHERE (:#{#dto.status} IS NULL OR f.status = :#{#dto.status})"
 			+ " AND (:#{#dto.idCliente} IS NULL OR f.cliente.id = :#{#dto.idCliente})")
 	Page<Fatura> buscarPor(FaturaBuscarDTO dto, Pageable pageable);
 }

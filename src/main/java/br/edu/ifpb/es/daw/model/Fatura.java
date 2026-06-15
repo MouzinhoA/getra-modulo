@@ -35,7 +35,7 @@ public class Fatura implements Serializable {
     private Double valorTotal;
     private LocalDate dataVencimento;
     private LocalDate dataPagamento;
-    private Boolean status;
+    private String status;
     private String tipoPagamentoPreferencial;
     private String linhaDigitavelBoleto;
     private String qrCodePix;

@@ -103,12 +103,23 @@ public class ContaPagarService {
 	}
 
 	@Transactional
-	public ContaPagarResponseDTO estornar(UUID lookupId) {
+	public ContaPagarResponseDTO pendente(UUID lookupId) {
 		ContaPagar objExistente = ensureExists(lookupId);
-		if ("ABERTO".equalsIgnoreCase(objExistente.getStatus())) {
+		if ("PENDENTE".equalsIgnoreCase(objExistente.getStatus())) {
 			return mapper.from(objExistente);
 		}
-		objExistente.setStatus("ABERTO");
+		objExistente.setStatus("PENDENTE");
+		ContaPagar objAtualizado = repository.save(objExistente);
+		return mapper.from(objAtualizado);
+	}
+
+	@Transactional
+	public ContaPagarResponseDTO vencido(UUID lookupId) {
+		ContaPagar objExistente = ensureExists(lookupId);
+		if ("VENCIDO".equalsIgnoreCase(objExistente.getStatus())) {
+			return mapper.from(objExistente);
+		}
+		objExistente.setStatus("VENCIDO");
 		ContaPagar objAtualizado = repository.save(objExistente);
 		return mapper.from(objAtualizado);
 	}

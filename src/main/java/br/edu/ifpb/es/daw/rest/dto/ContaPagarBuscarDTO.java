@@ -6,7 +6,7 @@ public record ContaPagarBuscarDTO(
     @Schema(description = "Filtrar contas a pagar pela descrição ou título.")
     String descricao,
 
-    @Schema(description = "Filtrar pelo status da conta (ex: ABERTO, PAGO).")
+    @Schema(description = "Filtrar pelo status da conta (PAGO, PENDENTE, VENCIDO).")
     String status,
 
     @Schema(description = "Número da página a ser retornada na paginação. Começa com zero.")

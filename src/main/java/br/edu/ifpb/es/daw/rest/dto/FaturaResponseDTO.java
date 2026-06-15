@@ -25,7 +25,7 @@ public record FaturaResponseDTO(
     @Schema(description = "Meio de pagamento.")
     String meioPagamento,
 
-    @Schema(description = "Status da fatura.")
+    @Schema(description = "Status da fatura (PAGO, PENDENTE, VENCIDO).")
     String status,
 
     @Schema(description = "Nome do Cliente.")

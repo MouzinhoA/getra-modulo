@@ -66,13 +66,13 @@ public class FaturaService {
 	@Transactional
 	public FaturaResponseDTO atualizar(UUID lookupId, FaturaSalvarRequestDTO dto) {
 		Fatura objExistente = ensureExists(lookupId);
-		if (Boolean.TRUE.equals(objExistente.getStatus())) {
+		if ("PAGO".equalsIgnoreCase(objExistente.getStatus())) {
 			throw new EstadoInválidoException("Não pode editar uma fatura já paga.");
 		}
 		objExistente.setValorTotal(dto.valorTotal());
 		objExistente.setDataVencimento(dto.dataVencimento());
 		objExistente.setDataPagamento(dto.dataPagamento());
-		objExistente.setStatus("PAGO".equalsIgnoreCase(dto.status()));
+		objExistente.setStatus(dto.status());
 		objExistente.setTipoPagamentoPreferencial(dto.meioPagamento());
 		objExistente.setCliente(entityManager.getReference(Cliente.class, dto.idCliente()));
 		objExistente.setUsuario(entityManager.getReference(Usuario.class, dto.idUsuario()));
@@ -99,10 +99,10 @@ public class FaturaService {
 	@Transactional
 	public FaturaResponseDTO pagar(UUID lookupId) {
 		Fatura objExistente = ensureExists(lookupId);
-		if (Boolean.TRUE.equals(objExistente.getStatus())) {
+		if ("PAGO".equalsIgnoreCase(objExistente.getStatus())) {
 			return mapper.from(objExistente);
 		}
-		objExistente.setStatus(true);
+		objExistente.setStatus("PAGO");
 		Fatura objAtualizado = repository.save(objExistente);
 		return mapper.from(objAtualizado);
 	}
@@ -110,10 +110,21 @@ public class FaturaService {
 	@Transactional
 	public FaturaResponseDTO pendente(UUID lookupId) {
 		Fatura objExistente = ensureExists(lookupId);
-		if (Boolean.FALSE.equals(objExistente.getStatus())) {
+		if ("PENDENTE".equalsIgnoreCase(objExistente.getStatus())) {
 			return mapper.from(objExistente);
 		}
-		objExistente.setStatus(false);
+		objExistente.setStatus("PENDENTE");
+		Fatura objAtualizado = repository.save(objExistente);
+		return mapper.from(objAtualizado);
+	}
+
+	@Transactional
+	public FaturaResponseDTO vencido(UUID lookupId) {
+		Fatura objExistente = ensureExists(lookupId);
+		if ("VENCIDO".equalsIgnoreCase(objExistente.getStatus())) {
+			return mapper.from(objExistente);
+		}
+		objExistente.setStatus("VENCIDO");
 		Fatura objAtualizado = repository.save(objExistente);
 		return mapper.from(objAtualizado);
 	}

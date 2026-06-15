@@ -22,7 +22,7 @@ public class FaturaMapper {
                 .valorTotal(from.valorTotal())
                 .dataVencimento(from.dataVencimento())
                 .dataPagamento(from.dataPagamento())
-                .status("PAGO".equalsIgnoreCase(from.status()))
+                .status(from.status())
                 .tipoPagamentoPreferencial(from.meioPagamento())
                 .cliente(entityManager.getReference(Cliente.class, from.idCliente()))
                 .usuario(entityManager.getReference(Usuario.class, from.idUsuario()));
@@ -40,7 +40,7 @@ public class FaturaMapper {
                 .dataVencimento(from.getDataVencimento())
                 .dataPagamento(from.getDataPagamento())
                 .meioPagamento(from.getTipoPagamentoPreferencial())
-                .status(from.getStatus() != null && from.getStatus() ? "PAGO" : "PENDENTE")
+                .status(from.getStatus())
                 .nomeCliente(from.getCliente() != null ? from.getCliente().getNomeRazaoSocial() : null)
                 .nomeUsuario(from.getUsuario() != null ? from.getUsuario().getNome() : null)
                 .build();

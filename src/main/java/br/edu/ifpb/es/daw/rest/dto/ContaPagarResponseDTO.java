@@ -18,7 +18,7 @@ public record ContaPagarResponseDTO(
         @Schema(description = "Valor da conta.")
         Double valor,
 
-        @Schema(description = "Status atual (PAGO, ABERTO).")
+        @Schema(description = "Status atual (PAGO, PENDENTE, VENCIDO).")
         String status,
 
         @Schema(description = "Forma de pagamento utilizada (se houver).")

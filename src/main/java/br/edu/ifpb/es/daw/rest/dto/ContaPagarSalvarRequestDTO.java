@@ -13,7 +13,7 @@ public record ContaPagarSalvarRequestDTO(
     @NotNull
     Double valor,
 
-    @Schema(description = "Status atual (PAGO, ABERTO).")
+    @Schema(description = "Status atual (PAGO, PENDENTE, VENCIDO).")
     @NotBlank
     String status,
 

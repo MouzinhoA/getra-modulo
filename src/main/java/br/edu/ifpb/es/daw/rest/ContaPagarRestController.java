@@ -75,9 +75,15 @@ public class ContaPagarRestController {
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
 
-	@PatchMapping("/{lookupId}/estornar")
-	public ResponseEntity<ContaPagarResponseDTO> estornar(@PathVariable UUID lookupId) {
-		ContaPagarResponseDTO resultado = contaPagarService.estornar(lookupId);
+	@PatchMapping("/{lookupId}/pendente")
+	public ResponseEntity<ContaPagarResponseDTO> pendente(@PathVariable UUID lookupId) {
+		ContaPagarResponseDTO resultado = contaPagarService.pendente(lookupId);
+		return new ResponseEntity<>(resultado, HttpStatus.OK);
+	}
+
+	@PatchMapping("/{lookupId}/vencido")
+	public ResponseEntity<ContaPagarResponseDTO> vencido(@PathVariable UUID lookupId) {
+		ContaPagarResponseDTO resultado = contaPagarService.vencido(lookupId);
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
 }

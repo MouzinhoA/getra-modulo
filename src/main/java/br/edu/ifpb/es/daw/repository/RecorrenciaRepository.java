@@ -21,7 +21,8 @@ public interface RecorrenciaRepository extends JpaRepository<Recorrencia, Long> 
 			+ " AND (:status IS NULL OR r.status = :status)")
 	Page<Recorrencia> buscarPor(String periodicidade, Boolean status, Pageable pageable);
 
-	@Query("SELECT r FROM Recorrencia r WHERE (:#{#dto.periodicidade} IS NULL OR r.periodicidade = :#{#dto.periodicidade})"
+	@Query("SELECT r FROM Recorrencia r WHERE (:#{#dto.periodicidade} IS NULL"
+			+ " OR CAST(r.periodicidade AS string) = :#{#dto.periodicidade})"
 			+ " AND (:#{#dto.status} IS NULL OR r.status = :#{#dto.status})")
 	Page<Recorrencia> buscarPor(RecorrenciaBuscarDTO dto, Pageable pageable);
 }
