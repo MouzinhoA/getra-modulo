@@ -18,6 +18,9 @@ public record UsuarioResponseDTO(
     @Schema(description = "Status se está ativo.")
     Boolean ativo,
 
+    @Schema(description = "ID do Perfil associado.")
+    Long idPerfil,
+
     @Schema(description = "Nome do Perfil associado.")
     String nomePerfil
 ) {}

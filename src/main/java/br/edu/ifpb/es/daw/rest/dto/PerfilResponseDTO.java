@@ -6,6 +6,9 @@ import java.util.UUID;
 
 @Builder
 public record PerfilResponseDTO(
+    @Schema(description = "ID interno do perfil.")
+    Long id,
+
     @Schema(description = "Lookup ID do perfil.")
     UUID lookupId,
 

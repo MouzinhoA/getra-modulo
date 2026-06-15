@@ -31,6 +31,7 @@ public class UsuarioMapper {
                 .nome(from.getNome())
                 .email(from.getEmail())
                 .ativo(from.getAtivo())
+                .idPerfil(from.getPerfil() != null ? from.getPerfil().getId() : null)
                 .nomePerfil(from.getPerfil() != null ? from.getPerfil().getNome() : null)
                 .build();
     }

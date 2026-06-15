@@ -17,6 +17,7 @@ public class PerfilMapper {
 
     public PerfilResponseDTO from(Perfil from) {
         return PerfilResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nome(from.getNome())
                 .permissoes(from.getPermissoes())
