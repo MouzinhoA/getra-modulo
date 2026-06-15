@@ -1,0 +1,1462 @@
+{
+  "info": {
+    "_postman_id": "be79b46a-6681-4716-a832-ae7698e1250a",
+    "name": "Getra API",
+    "description": "Collection completa da API REST do sistema Getra",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55907955",
+    "_collection_link": "https://go.postman.co/collection/55907955-be79b46a-6681-4716-a832-ae7698e1250a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "1. Perfil",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/perfil",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Administrador\",\n  \"permissoes\": \"CRIAR_USUARIO,EDITAR_USUARIO,REMOVER_USUARIO\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/perfil",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/perfil/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Administrador Master\",\n  \"permissoes\": \"CRIAR_USUARIO,EDITAR_USUARIO,REMOVER_USUARIO,GERENCIAR\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/perfil/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/perfil/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/perfil/buscar?nome=Administrador ",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "perfil",
+                "buscar"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Administrador "
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Entidade independente (sem FK)"
+    },
+    {
+      "name": "2. Servico",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/servico",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Internet 500 Mega\",\n  \"descricao\": \"Internet fibra óptica 500 Mbps\",\n  \"valorPadrao\": 149.90\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/servico",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/servico/779c3ac3-bac6-420a-b9c3-cc5f68deb657",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico",
+                "779c3ac3-bac6-420a-b9c3-cc5f68deb657"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Internet 1 Giga\",\n  \"descricao\": \"Internet fibra óptica 1 Gbps\",\n  \"valorPadrao\": 199.90\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/servico/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/servico/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "?nome=Internet",
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Internet"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Entidade independente (sem FK)"
+    },
+    {
+      "name": "3. Parceiro",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/parceiro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomeRazaoSocial\": \"Fornecedor LTDA\",\n  \"cpfCnpj\": \"11.222.333/0001-44\",\n  \"emailContato\": \"contato@fornecedor.com\",\n  \"dadosBancariosPix\": \"chave-pix@fornecedor.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/parceiro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/parceiro/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomeRazaoSocial\": \"Fornecedor Atualizado SA\",\n  \"cpfCnpj\": \"11.222.333/0001-44\",\n  \"emailContato\": \"novo@fornecedor.com\",\n  \"dadosBancariosPix\": \"nova-chave-pix@fornecedor.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/parceiro/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/parceiro/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "?nomeRazaoSocial=Fornecedor",
+              "query": [
+                {
+                  "key": "nomeRazaoSocial",
+                  "value": "Fornecedor"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Entidade independente (sem FK)"
+    },
+    {
+      "name": "4. Cliente",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cliente",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomeRazaoSocial\": \"João Silva\",\n  \"cpfCnpj\": \"123.456.789-00\",\n  \"email\": \"joao@email.com\",\n  \"telefone\": \"(83) 99999-0000\",\n  \"endereco\": \"Rua Principal, 123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cliente",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cliente/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomeRazaoSocial\": \"João Silva Atualizado\",\n  \"cpfCnpj\": \"123.456.789-00\",\n  \"email\": \"joao.novo@email.com\",\n  \"telefone\": \"(83) 98888-0000\",\n  \"endereco\": \"Rua Nova, 456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cliente/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cliente/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "?nomeRazaoSocial=João&cpfCnpj=123.456.789-00",
+              "query": [
+                {
+                  "key": "nomeRazaoSocial",
+                  "value": "João"
+                },
+                {
+                  "key": "cpfCnpj",
+                  "value": "123.456.789-00"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Entidade independente (sem FK)"
+    },
+    {
+      "name": "5. Usuario",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Maria Souza\",\n  \"email\": \"maria@getra.com\",\n  \"senha\": \"123456\",\n  \"ativo\": true,\n  \"idPerfil\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/usuario",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Maria Souza Atualizada\",\n  \"email\": \"maria.novo@getra.com\",\n  \"senha\": \"654321\",\n  \"ativo\": true,\n  \"idPerfil\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/usuario/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ativar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario/{lookupId}/ativar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "{lookupId}",
+                "ativar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Desativar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario/{lookupId}/desativar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "{lookupId}",
+                "desativar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuario/buscar?nome=Maria&email=maria",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuario",
+                "buscar"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Maria"
+                },
+                {
+                  "key": "email",
+                  "value": "maria"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Depende de Perfil (FK idPerfil)"
+    },
+    {
+      "name": "6. Recorrencia",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valorCobrado\": 149.90,\n  \"periodicidade\": \"MENSAL\",\n  \"diaVencimento\": 15,\n  \"status\": true,\n  \"idCliente\": 1,\n  \"idServico\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valorCobrado\": 199.90,\n  \"periodicidade\": \"MENSAL\",\n  \"diaVencimento\": 10,\n  \"status\": true,\n  \"idCliente\": 1,\n  \"idServico\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ativar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/{lookupId}/ativar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "{lookupId}",
+                "ativar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Desativar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/{lookupId}/desativar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "{lookupId}",
+                "desativar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recorrencia/buscar?periodicidade=ANUAL&status=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recorrencia",
+                "buscar"
+              ],
+              "query": [
+                {
+                  "key": "periodicidade",
+                  "value": "ANUAL"
+                },
+                {
+                  "key": "status",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Depende de Cliente e Servico (FK idCliente, idServico)"
+    },
+    {
+      "name": "7. Fatura",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valorTotal\": 149.90,\n  \"dataVencimento\": \"2026-07-15\",\n  \"dataPagamento\": null,\n  \"meioPagamento\": \"PIX\",\n  \"status\": \"PENDENTE\",\n  \"idCliente\": 1,\n  \"idUsuario\": 1,\n  \"idRecorrencia\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fatura",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valorTotal\": 199.90,\n  \"dataVencimento\": \"2026-08-15\",\n  \"dataPagamento\": null,\n  \"meioPagamento\": \"CARTAO\",\n  \"status\": \"PENDENTE\",\n  \"idCliente\": 1,\n  \"idUsuario\": 1,\n  \"idRecorrencia\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fatura/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pagar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/{lookupId}/pagar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "{lookupId}",
+                "pagar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pendente",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/{lookupId}/cancelar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "{lookupId}",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Vencido",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/59275b0f-c1fc-4a7f-926f-7cee90d07d68/vencido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "59275b0f-c1fc-4a7f-926f-7cee90d07d68",
+                "vencido"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fatura/buscar?status=PAGO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fatura",
+                "buscar"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PAGO"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Depende de Cliente, Recorrencia e Usuario (FK idCliente, idRecorrencia, idUsuario)"
+    },
+    {
+      "name": "8. ContaPagar",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descricao\": \"Conta de Luz\",\n  \"valor\": 250.00,\n  \"status\": \"PENDENTE\",\n  \"formaPagamento\": \"PIX\",\n  \"dataVencimento\": \"2026-07-10\",\n  \"dataPagamento\": null,\n  \"idParceiro\": 1,\n  \"idUsuario\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descricao\": \"Conta de Agua\",\n  \"valor\": 180.00,\n  \"status\": \"PENDENTE\",\n  \"formaPagamento\": \"BOLETO\",\n  \"dataVencimento\": \"2026-07-20\",\n  \"dataPagamento\": null,\n  \"idParceiro\": 1,\n  \"idUsuario\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pagar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/{lookupId}/pagar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "{lookupId}",
+                "pagar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pendente",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/5f4fa94a-1095-4b0a-82d3-7655c3ee8388/pendente",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "5f4fa94a-1095-4b0a-82d3-7655c3ee8388",
+                "pendente"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Vencido",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/5f4fa94a-1095-4b0a-82d3-7655c3ee8388/vencido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "5f4fa94a-1095-4b0a-82d3-7655c3ee8388",
+                "vencido"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/conta-pagar/buscar?descricao=Conta&status=PENDENTE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conta-pagar",
+                "buscar"
+              ],
+              "query": [
+                {
+                  "key": "descricao",
+                  "value": "Conta"
+                },
+                {
+                  "key": "status",
+                  "value": "PENDENTE"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Depende de Parceiro e Usuario (FK idParceiro, idUsuario)"
+    },
+    {
+      "name": "9. NotaFiscal",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero\": \"NF-2026-000001\",\n  \"dataEmissao\": \"2026-06-15\",\n  \"valorTotal\": 149.90,\n  \"statusApi\": \"PENDENTE\",\n  \"idExtGovApi\": null,\n  \"linkXml\": null,\n  \"linkPdf\": null,\n  \"idFatura\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar por lookupId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero\": \"NF-2026-000002\",\n  \"dataEmissao\": \"2026-06-15\",\n  \"valorTotal\": 199.90,\n  \"statusApi\": \"PENDENTE\",\n  \"idExtGovApi\": null,\n  \"linkXml\": null,\n  \"linkPdf\": null,\n  \"idFatura\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Autorizar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal/{lookupId}/autorizar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal",
+                "{lookupId}",
+                "autorizar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancelar",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal/{lookupId}/cancelar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal",
+                "{lookupId}",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/nota-fiscal/{lookupId}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nota-fiscal",
+                "{lookupId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar com filtro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "?numero=NF-2026&statusApi=PENDENTE",
+              "query": [
+                {
+                  "key": "numero",
+                  "value": "NF-2026"
+                },
+                {
+                  "key": "statusApi",
+                  "value": "PENDENTE"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Depende de Fatura (FK idFatura)"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/getra/api"
+    }
+  ]
+}
