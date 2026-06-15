@@ -11,34 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Arrays;
 
 @Configuration
-//@io.swagger.v3.oas.annotations.OpenAPIDefinition(
-//	info = @io.swagger.v3.oas.annotations.info.Info(
-//			title = "CRUD de Tarefa",
-//			description = "Exemplo de API REST com um CRUD de Tarefas",
-//			version = "1.0.0",
-//	        contact = @io.swagger.v3.oas.annotations.info.Contact(
-//	                name = "Código no github",
-//	                url = "https://github.com/ifpb-es/spring-boot-todo"
-//	                //,email = "support@example.com"
-//	        ),
-//	        license = @io.swagger.v3.oas.annotations.info.License(
-//	        			name = "Apache 2.0",
-//	        			url = "http://www.apache.org/licenses/LICENSE-2.0"
-//	        		)
-//	),
-//	tags = {
-//			@io.swagger.v3.oas.annotations.tags.Tag(
-//					name = "todo",
-//					description = "API Tarefa"
-//			)
-//	},
-////	externalDocs = @io.swagger.v3.oas.annotations.ExternalDocumentation(
-////			description = "Full Documentation",
-////			url = "http://example.com/docs"
-////	),
-//)
 public class OpenAPIConfiguration {
-	
+
 	@Bean
 	OpenAPI customOpenAPI() {
 	    return new OpenAPI()
@@ -48,13 +22,10 @@ public class OpenAPIConfiguration {
 	                    .version("1.0.0")
 	                    .contact(new Contact()
 	                            .name("Código no github")
-	                            .url("https://github.com/ifpb-es/spring-boot-todo"))
+	                            .url("https://github.com/MouzinhoA/getra-modulo"))
 	                    .license(new License()
 	                            .name("Apache 2.0")
 	                            .url("http://www.apache.org/licenses/LICENSE-2.0")))
 				.tags(Arrays.asList(new Tag().name("getra").description("API Getra")));
-//	            .externalDocs(new ExternalDocumentation()
-//	                    .description("Full Documentation")
-//	                    .url("http://example.com/docs"));
     }
 }
