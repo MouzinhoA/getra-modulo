@@ -6,6 +6,9 @@ import java.util.UUID;
 
 @Builder
 public record ServicoResponseDTO(
+    @Schema(description = "ID interno do serviço.")
+    Long id,
+
     @Schema(description = "Lookup ID do serviço.")
     UUID lookupId,
 

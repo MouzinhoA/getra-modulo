@@ -6,6 +6,9 @@ import java.util.UUID;
 
 @Builder
 public record ContaPagarResponseDTO(
+        @Schema(description = "ID interno da conta a pagar.")
+        Long id,
+
         @Schema(description = "Lookup ID seguro da conta a pagar.")
         UUID lookupId,
 

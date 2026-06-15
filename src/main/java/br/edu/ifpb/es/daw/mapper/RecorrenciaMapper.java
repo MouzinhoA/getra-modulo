@@ -29,6 +29,7 @@ public class RecorrenciaMapper {
 
     public RecorrenciaResponseDTO from(Recorrencia from) {
         return RecorrenciaResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .valorCobrado(from.getValorCobrado())
                 .periodicidade(from.getPeriodicidade() != null ? from.getPeriodicidade().name() : null)

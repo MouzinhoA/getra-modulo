@@ -19,6 +19,7 @@ public class ParceiroMapper {
 
     public ParceiroResponseDTO from(Parceiro from) {
         return ParceiroResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nomeRazaoSocial(from.getNomeRazaoSocial())
                 .cpfCnpj(from.getCpfCnpj())

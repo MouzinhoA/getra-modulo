@@ -6,6 +6,9 @@ import java.util.UUID;
 
 @Builder
 public record RecorrenciaResponseDTO(
+    @Schema(description = "ID interno da recorrência.")
+    Long id,
+
     @Schema(description = "Lookup ID da recorrência.")
     UUID lookupId,
 

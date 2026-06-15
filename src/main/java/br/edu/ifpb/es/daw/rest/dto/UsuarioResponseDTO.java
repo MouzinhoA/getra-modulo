@@ -6,6 +6,9 @@ import java.util.UUID;
 
 @Builder
 public record UsuarioResponseDTO(
+    @Schema(description = "ID interno do usuário.")
+    Long id,
+
     @Schema(description = "Lookup ID seguro do usuário.")
     UUID lookupId,
 

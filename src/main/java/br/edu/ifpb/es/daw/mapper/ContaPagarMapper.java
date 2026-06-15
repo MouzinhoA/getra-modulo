@@ -31,6 +31,7 @@ public class ContaPagarMapper {
 
     public ContaPagarResponseDTO from(ContaPagar from) {
         return ContaPagarResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .descricao(from.getDescricao())
                 .valor(from.getValor())

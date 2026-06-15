@@ -7,6 +7,9 @@ import java.util.UUID;
 
 @Builder
 public record FaturaResponseDTO(
+    @Schema(description = "ID interno da fatura.")
+    Long id,
+
     @Schema(description = "Lookup ID da fatura.")
     UUID lookupId,
 

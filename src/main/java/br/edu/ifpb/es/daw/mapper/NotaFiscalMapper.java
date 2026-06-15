@@ -30,6 +30,7 @@ public class NotaFiscalMapper {
 
     public NotaFiscalResponseDTO from(NotaFiscal from) {
         return NotaFiscalResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .numero(from.getNumero())
                 .dataEmissao(from.getDataEmissao())

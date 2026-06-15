@@ -108,7 +108,7 @@ public class FaturaService {
 	}
 
 	@Transactional
-	public FaturaResponseDTO cancelar(UUID lookupId) {
+	public FaturaResponseDTO pendente(UUID lookupId) {
 		Fatura objExistente = ensureExists(lookupId);
 		if (Boolean.FALSE.equals(objExistente.getStatus())) {
 			return mapper.from(objExistente);

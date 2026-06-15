@@ -27,6 +27,7 @@ public class UsuarioMapper {
 
     public UsuarioResponseDTO from(Usuario from) {
         return UsuarioResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nome(from.getNome())
                 .email(from.getEmail())

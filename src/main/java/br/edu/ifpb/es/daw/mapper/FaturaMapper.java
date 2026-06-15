@@ -34,6 +34,7 @@ public class FaturaMapper {
 
     public FaturaResponseDTO from(Fatura from) {
         return FaturaResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .valorTotal(from.getValorTotal())
                 .dataVencimento(from.getDataVencimento())

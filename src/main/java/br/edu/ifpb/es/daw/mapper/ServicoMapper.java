@@ -18,6 +18,7 @@ public class ServicoMapper {
 
     public ServicoResponseDTO from(Servico from) {
         return ServicoResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nome(from.getNome())
                 .descrição(from.getDescricao())

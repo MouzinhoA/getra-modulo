@@ -20,6 +20,7 @@ public class ClienteMapper {
 
     public ClienteResponseDTO from(Cliente from) {
         return ClienteResponseDTO.builder()
+                .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nomeRazaoSocial(from.getNomeRazaoSocial())
                 .cpfCnpj(from.getCpfCnpj())

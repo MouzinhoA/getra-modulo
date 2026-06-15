@@ -75,9 +75,9 @@ public class FaturaRestController {
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
 
-	@PatchMapping("/{lookupId}/cancelar")
-	public ResponseEntity<FaturaResponseDTO> cancelar(@PathVariable UUID lookupId) {
-		FaturaResponseDTO resultado = faturaService.cancelar(lookupId);
+	@PatchMapping("/{lookupId}/pendente")
+	public ResponseEntity<FaturaResponseDTO> pendente(@PathVariable UUID lookupId) {
+		FaturaResponseDTO resultado = faturaService.pendente(lookupId);
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
 }

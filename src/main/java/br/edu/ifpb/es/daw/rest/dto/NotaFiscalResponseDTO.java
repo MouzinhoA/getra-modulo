@@ -8,6 +8,9 @@ import java.util.UUID;
 
 @Builder
 public record NotaFiscalResponseDTO(
+    @Schema(description = "ID interno da nota fiscal.")
+    Long id,
+
     @Schema(description = "Lookup ID da nota fiscal.")
     UUID lookupId,
 
