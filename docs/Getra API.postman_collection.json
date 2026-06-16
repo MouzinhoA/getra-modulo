@@ -123,7 +123,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/perfil/buscar?nome=Administrador ",
+              "raw": "{{baseUrl}}/perfil/buscar?nome=Administrador",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -134,7 +134,7 @@
               "query": [
                 {
                   "key": "nome",
-                  "value": "Administrador "
+                  "value": "Administrador"
                 }
               ]
             }
@@ -196,13 +196,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/servico/779c3ac3-bac6-420a-b9c3-cc5f68deb657",
+              "raw": "{{baseUrl}}/servico/{lookupId}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "servico",
-                "779c3ac3-bac6-420a-b9c3-cc5f68deb657"
+                "{lookupId}"
               ]
             }
           },
@@ -259,7 +259,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "?nome=Internet",
+              "raw": "{{baseUrl}}/servico/buscar?nome=Internet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servico",
+                "buscar"
+              ],
               "query": [
                 {
                   "key": "nome",
@@ -388,7 +395,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "?nomeRazaoSocial=Fornecedor",
+              "raw": "{{baseUrl}}/parceiro/buscar?nomeRazaoSocial=Fornecedor",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "parceiro",
+                "buscar"
+              ],
               "query": [
                 {
                   "key": "nomeRazaoSocial",
@@ -517,7 +531,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "?nomeRazaoSocial=João&cpfCnpj=123.456.789-00",
+              "raw": "{{baseUrl}}/cliente/buscar?nomeRazaoSocial=João&cpfCnpj=123.456.789-00",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cliente",
+                "buscar"
+              ],
               "query": [
                 {
                   "key": "nomeRazaoSocial",
@@ -1007,14 +1028,14 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fatura/{lookupId}/cancelar",
+              "raw": "{{baseUrl}}/fatura/{lookupId}/pendente",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fatura",
                 "{lookupId}",
-                "cancelar"
+                "pendente"
               ]
             }
           },
@@ -1026,13 +1047,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fatura/59275b0f-c1fc-4a7f-926f-7cee90d07d68/vencido",
+              "raw": "{{baseUrl}}/fatura/{lookupId}/vencido",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fatura",
-                "59275b0f-c1fc-4a7f-926f-7cee90d07d68",
+                "{lookupId}",
                 "vencido"
               ]
             }
@@ -1200,13 +1221,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/conta-pagar/5f4fa94a-1095-4b0a-82d3-7655c3ee8388/pendente",
+              "raw": "{{baseUrl}}/conta-pagar/{lookupId}/pendente",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "conta-pagar",
-                "5f4fa94a-1095-4b0a-82d3-7655c3ee8388",
+                "{lookupId}",
                 "pendente"
               ]
             }
