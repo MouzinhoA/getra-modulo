@@ -11,7 +11,7 @@ public class ServicoMapper {
     public Servico from(ServicoSalvarRequestDTO from) {
         return Servico.builder()
                 .nome(from.nome())
-                .descricao(from.descrição())
+                .descricao(from.descricao())
                 .valorPadrao(from.valorPadrao())
                 .build();
     }
@@ -21,7 +21,7 @@ public class ServicoMapper {
                 .id(from.getId())
                 .lookupId(from.getLookupId())
                 .nome(from.getNome())
-                .descrição(from.getDescricao())
+                .descricao(from.getDescricao())
                 .valorPadrao(from.getValorPadrao())
                 .build();
     }

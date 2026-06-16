@@ -16,7 +16,7 @@ public record ServicoResponseDTO(
     String nome,
 
     @Schema(description = "Descrição do serviço.")
-    String descrição,
+    String descricao,
 
     @Schema(description = "Valor padrão do serviço.")
     Double valorPadrao

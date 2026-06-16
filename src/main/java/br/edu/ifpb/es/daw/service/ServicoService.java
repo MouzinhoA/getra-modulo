@@ -58,7 +58,7 @@ public class ServicoService {
 	public ServicoResponseDTO atualizar(UUID lookupId, ServicoSalvarRequestDTO dto) {
 		Servico objExistente = ensureExists(lookupId);
 		objExistente.setNome(dto.nome());
-		objExistente.setDescricao(dto.descrição());
+		objExistente.setDescricao(dto.descricao());
 		objExistente.setValorPadrao(dto.valorPadrao());
 		Servico objAtualizado = repository.save(objExistente);
 		return mapper.from(objAtualizado);

@@ -10,7 +10,7 @@ public record ServicoSalvarRequestDTO(
     String nome,
 
     @Schema(description = "Descrição detalhada do serviço.")
-    String descrição,
+    String descricao,
 
     @Schema(description = "Valor padrão cobrado pelo serviço.")
     @NotNull
